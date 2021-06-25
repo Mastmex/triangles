@@ -1,3 +1,8 @@
 /SFML-2.5.1/doc
 /SFML-2.5.1/examples
 /SFML-2.5.1/readme.md
+/SFML-2.5.1/bin
+*.exe
+/build/
+/.vscode
+*.dll
