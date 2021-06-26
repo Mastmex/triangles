@@ -40,5 +40,5 @@ cfg::cfg(){
             break;
         }
     }
-    cout<<this->length;
+    cout<<this->length<<"X"<<this->height;
 }

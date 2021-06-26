@@ -5,7 +5,8 @@ win::win(){
 }
 
 void win::start(){
-    sf::RenderWindow window(sf::VideoMode(800,600),"triangles");
+    cout<<this->cf->getLength()<<"X"<<this->cf->getHeight();
+    sf::RenderWindow window(sf::VideoMode(this->cf->getLength(),this->cf->getHeight()),"triangles");
     while (window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
@@ -17,8 +18,8 @@ void win::start(){
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed)
                 {
-                    vec.push_back(sf::Mouse::getPosition());
-                    cout<<vec.back().x;
+                    vec.push_back(sf::Mouse::getPosition(window));
+                    cout<<vec.back().x<<endl;
                 }
         }
 
@@ -26,19 +27,6 @@ void win::start(){
         window.clear(sf::Color::Black);
 
         // draw everything here...
-        if(vec.capacity()>=2)
-        {
-            for(int i=0;i<vec.capacity()-1;i++)
-                {
-                    sf::Vertex line[]=
-                    {
-                        sf::Vertex(sf::Vector2f(vec[i].x,vec[i].y)),
-                        sf::Vertex(sf::Vector2f(vec[i+1].x,vec[i+1].y))
-                    };
-                    window.draw(line, 2, sf::Lines);
-                }
-        }
-
         // end the current frame
         window.display();
     }

@@ -3,5 +3,7 @@
 
 ## TODO:
  - [x] configuration files
- - [ ] more correct mouse position recognizing
+ - [x] more correct mouse position recognizing
+ - [ ] triangles drawer
+ - [ ] not intersect triangles drawer
  
