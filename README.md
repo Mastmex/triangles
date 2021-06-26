@@ -1,1 +1,7 @@
-# Тест в создании простого проекта с испотльзованием SFML и CMake
+# SFML and CMake practice
+
+
+## TODO:
+ - [ ] configuration files
+ - [ ] more correct mouse position recognizing
+ 
