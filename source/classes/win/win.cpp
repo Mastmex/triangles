@@ -1,13 +1,11 @@
 #include "win.hpp"
 
-win::win()
-{
-    this->heigth=1017;
-    this->length=1920;
+win::win(){
+    this->cf=new cfg();
 }
 
 void win::start(){
-    sf::RenderWindow window(sf::VideoMode(this->length,this->heigth),"triangles");
+    sf::RenderWindow window(sf::VideoMode(800,600),"triangles");
     while (window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop

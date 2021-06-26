@@ -4,6 +4,9 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <iostream>
+#include "./../cfg/cfg.hpp"
+
+
 using namespace std;
 
 
@@ -11,7 +14,7 @@ using namespace std;
 
 class win{
 private:
-int heigth,length;
+cfg *cf;
 vector<sf::Vector2i> vec;
 public:
     win();
