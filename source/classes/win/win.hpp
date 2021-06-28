@@ -5,6 +5,7 @@
 #include <vector>
 #include <iostream>
 #include "./../cfg/cfg.hpp"
+#include "./../tri/tri.hpp"
 
 
 using namespace std;
@@ -15,7 +16,7 @@ using namespace std;
 class win{
 private:
 cfg *cf;
-vector<sf::Vector2i> vec;
+tri t;
 public:
     win();
     void start();

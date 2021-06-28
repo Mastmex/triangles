@@ -5,7 +5,7 @@ win::win(){
 }
 
 void win::start(){
-    cout<<this->cf->getLength()<<"X"<<this->cf->getHeight();
+    cout<<this->cf->getLength()<<"X"<<this->cf->getHeight()<<endl;
     sf::RenderWindow window(sf::VideoMode(this->cf->getLength(),this->cf->getHeight()),"triangles");
     while (window.isOpen())
     {
@@ -18,8 +18,7 @@ void win::start(){
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed)
                 {
-                    vec.push_back(sf::Mouse::getPosition(window));
-                    cout<<vec.back().x<<endl;
+                    this->t.addDot(sf::Mouse::getPosition(window));
                 }
         }
 
@@ -27,6 +26,8 @@ void win::start(){
         window.clear(sf::Color::Black);
 
         // draw everything here...
+        if(this->t.readyToDraw())
+            this->t.draw(window);
         // end the current frame
         window.display();
     }
