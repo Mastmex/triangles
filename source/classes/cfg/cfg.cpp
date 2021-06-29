@@ -15,6 +15,8 @@ cfg::cfg(){
             choose=0;
         if(line.starts_with("length"))
             choose=1;
+        if(line.starts_with("antialiasingLevel"))
+            choose=2;
         for(char p:line)
         {
             if(flag)
@@ -35,7 +37,8 @@ cfg::cfg(){
         case 1:
             this->length=hh;
             break;
-        
+        case 2:
+            this->aal=hh;
         default:
             break;
         }

@@ -17,6 +17,7 @@ class win{
 private:
 cfg *cf;
 tri t;
+bool check;
 public:
     win();
     void start();

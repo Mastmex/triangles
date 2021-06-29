@@ -4,6 +4,6 @@
 ## TODO:
  - [x] configuration files
  - [x] more correct mouse position recognizing
- - [ ] triangles drawer
+ - [x] triangles drawer
  - [ ] not intersect triangles drawer
  

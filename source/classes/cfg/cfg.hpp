@@ -9,11 +9,12 @@ using namespace std;
 
 class cfg{
 private:
-int height, length;
+int height, length,aal;
 public:
 cfg();
 int getHeight(){return this->height;}
 int getLength(){return this->length;}
+int getAAL(){return this->aal;}
 };
 
 
