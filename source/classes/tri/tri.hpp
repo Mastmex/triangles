@@ -9,22 +9,22 @@
 
 using namespace std;
 
-struct tring{
-    sf::Vector2i a,b,c;
-    auto operator=(const tring& x);
+struct lin{
+    sf::Vector2i a,b;
 };
 
 class tri{
 private:
-    vector<tring> possible_triangles;
     vector<sf::Vector2i> all_dots;
-    int count;
-
+    vector<lin> lines;
+    bool isIntersect(lin r);
+    bool ch(lin r, lin f);
+    bool ch2(lin r, lin f);
 public:
     void draw(sf::RenderWindow &win);
     void addDot(sf::Vector2i x);
     bool readyToDraw();
-    tri(){this->count=0;}
+    
 };
 
 

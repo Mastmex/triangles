@@ -9,6 +9,7 @@ void win::start(){
         sf::ContextSettings set;
         set.antialiasingLevel=this->cf->getAAL();
     sf::RenderWindow window(sf::VideoMode(this->cf->getLength(),this->cf->getHeight()),"triangles",sf::Style::Default,set);
+    window.setFramerateLimit(this->cf->getFPS());
     while (window.isOpen())
     {
         // check all the window's events that were triggered since the last iteration of the loop
@@ -22,6 +23,10 @@ void win::start(){
                 {
                     this->t.addDot(sf::Mouse::getPosition(window));
                 }
+            // if (event.type == sf::Event::MouseMoved)
+            //     {
+            //         this->t.addDot(sf::Mouse::getPosition(window));
+            //     }
             if (event.type == sf::Event::Resized)
                 {
                     sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);

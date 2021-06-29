@@ -17,6 +17,8 @@ cfg::cfg(){
             choose=1;
         if(line.starts_with("antialiasingLevel"))
             choose=2;
+        if(line.starts_with("fps"))
+            choose=3;
         for(char p:line)
         {
             if(flag)
@@ -39,6 +41,10 @@ cfg::cfg(){
             break;
         case 2:
             this->aal=hh;
+            break;
+        case 3:
+            this->fps=hh;
+            break;
         default:
             break;
         }
