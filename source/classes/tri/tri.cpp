@@ -1,18 +1,20 @@
 #include "tri.hpp"
 
-void tri::draw(sf::RenderWindow &win)
-{
-    for(int i=0;i<this->all_dots.capacity();i++)
-        for(int j=i+1;j<this->all_dots.capacity();j++){
-            //if(!this->isIntersect({this->all_dots[i],this->all_dots[j]}))
-            {
-                lines.push_back({this->all_dots[i],this->all_dots[j]});
-                lines.shrink_to_fit();
-                sf::Vertex line[] = {sf::Vertex(sf::Vector2f(this->all_dots[i].x,this->all_dots[i].y)),sf::Vertex(sf::Vector2f(this->all_dots[j].x,this->all_dots[j].y))};
-                win.draw(line,2,sf::Lines);
-            }
-        }
-}
+// void tri::draw(sf::RenderWindow &win)
+// {
+//     for(int i=0;i<this->all_dots.capacity();i++)
+//         for(int j=i+1;j<this->all_dots.capacity();j++){
+//             if(i==(this->count-1)||j==(this->count-1)||this->count==0)
+//                 lines.push_back({this->all_dots[i],this->all_dots[j]});
+//             //if(!this->isIntersect({this->all_dots[i],this->all_dots[j]}))
+//             {
+//                 sf::Vertex line[] = {sf::Vertex(sf::Vector2f(this->all_dots[i].x,this->all_dots[i].y)),sf::Vertex(sf::Vector2f(this->all_dots[j].x,this->all_dots[j].y))};
+//                 win.draw(line,2,sf::Lines);
+                
+//             }
+//         }
+//     count=this->all_dots.capacity();
+// }
 
 bool tri::readyToDraw()
 {
@@ -24,17 +26,42 @@ bool tri::readyToDraw()
 
 void tri::addDot(sf::Vector2i x)
 {
+    // this->all_dots.push_back(x);
+    // this->all_dots.shrink_to_fit();
+    if(this->all_dots.capacity()==0)
+        {
+            this->all_dots.push_back(x);
+            this->all_dots.shrink_to_fit();
+            return;
+        }
+    for(sf::Vector2i t:this->all_dots)
+    {
+        lines.push_back({t,x});
+        this->lines.shrink_to_fit();
+    }
     this->all_dots.push_back(x);
     this->all_dots.shrink_to_fit();
+}
+
+
+void tri::draw(sf::RenderWindow &win)
+{
+    for(lin t: this->lines)
+    {
+        sf::Vertex line[] = {sf::Vertex(sf::Vector2f(t.a.x,t.a.y)),sf::Vertex(sf::Vector2f(t.b.x,t.b.y))};
+        win.draw(line,2,sf::Lines);
+    }
 }
 
 bool tri::isIntersect(lin r)
 {
     for(lin f: this->lines)
     {
-        if(r.a==f.a||r.b==f.b)
+        //cout<<r<<"   =========   "<<f;
+        //system("pause");
+        if(r.a==f.a||r.b==f.b/*||r.a==f.b||r.b==f.a*/)
             continue;
-        if(this->ch2(r,f))
+        if(this->ch(r,f))
             return true;
     }
     return false;
